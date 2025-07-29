@@ -1,0 +1,21 @@
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+df = sns.load_dataset('titanic')
+df.head()
+
+df.info()
+df.describe()
+df.isnull().sum()
+
+df = df.dropna(subset=['age', 'embarked'])  # Example
+
+sns.countplot(x='survived', data=df)
+
+sns.countplot(x='survived', hue='sex', data=df)
+
+sns.histplot(df['age'], kde=True)
+
+sns.countplot(x='pclass', hue='survived', data=df)
+
